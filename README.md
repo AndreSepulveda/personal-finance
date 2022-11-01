@@ -22,3 +22,13 @@ There are many apps created to help users track their personal finances. We are 
 4. Data quality checks needs to be applied in every step deemed necessary
 5. A minimum data visualization tool need to be connected to the transformed data
 6. An orchestration tool needs to be used
+
+## Requirements
+
+1. Containerize applications and services
+2. Unit tests and assertions
+	- Pytest
+	- Great expectations
+3. Database migration tool
+   - Aerich
+4. Makefiles
