@@ -12,6 +12,16 @@ There are many apps created to help users track their personal finances. We are 
 3. Classify the person responsible for the expense
 4. Track and view metrics related to these expenses
 
+## Requirements
+
+1. Containerize applications and services
+2. Unit tests and assertions
+	- Pytest
+	- Great expectations
+3. Database migration tool
+   - Aerich
+4. Makefiles
+
 ## Proposed System
 
 ![system](./diagrams/system.png)
@@ -23,9 +33,7 @@ There are many apps created to help users track their personal finances. We are 
 5. A minimum data visualization tool need to be connected to the transformed data
 6. An orchestration tool needs to be used
 
-## Database & Analytics
-
-### Schema Configuration
+## Database Schema
 
 ![schema](./diagrams/schema.png)
 
