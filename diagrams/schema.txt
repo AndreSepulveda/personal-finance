@@ -1,0 +1,90 @@
+
+// Creating tables
+Table transactions {
+  id bigint [pk]
+  currency_id varchar
+  total_price float4
+  created_at timestamptz
+  location_id int
+  actor_id int
+  cancelled_at timestamptz
+  cancel_reason varchar
+  group_id int
+  category_id int
+  subcategory_id int
+}
+
+Table transaction_split {
+  transaction_id bigint [pk]
+  actor_id int [pk]
+  transaction_perc float4
+}
+
+Ref: transactions.(id, actor_id) - transaction_split.(transaction_id, actor_id)
+
+Table actors {
+  id int [pk]
+  first_name varchar
+  last_name varchar
+  gender varchar
+  email varchar
+}
+
+Table groups {
+  id int [pk]
+  label varchar
+  description varchar
+  creator_id int
+  created_at timestamptz
+  deleted_at timestamptz
+}
+
+Ref: groups.creator_id > actors.id
+
+Table group_members {
+  group_id int [pk]
+  member_id int [pk]
+  joined_at timestamptz
+  left_at timestamptz
+}
+
+Ref: actors.id < group_members.member_id
+Ref: groups.id < group_members.group_id
+
+Ref: transactions.(group_id, actor_id) - group_members.(group_id, member_id)
+
+Table categories {
+  id int [pk]
+  label varchar [note: 'Food, Transportation, Housing, etc.']
+}
+
+Ref: transactions.category_id > categories.id
+
+Table subcategories {
+  id int [pk]
+  category_id int
+  label varchar
+}
+
+Ref: transactions.subcategory_id > subcategories.id
+Ref: subcategories.category_id > categories.id
+
+Table currencies {
+  id int [pk]
+  currency_code varchar
+}
+
+Ref: transactions.currency_id > currencies.id
+
+Table locations {
+  id int [pk]
+  name varchar
+  address varchar
+  zip varchar
+  city varchar
+  province varchar
+  country_name varchar
+  country_code varchar
+}
+
+Ref: transactions.location_id > locations.id
