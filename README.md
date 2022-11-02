@@ -14,7 +14,7 @@ There are many apps created to help users track their personal finances. We are 
 
 ## Proposed System
 
-![system](./img/system.png)
+![system](./diagrams/system.png)
 
 1. Through an API, clients will insert data at a database. They must be able to do it synchronous or asynchronous, depending on the amount of data.
 2. Data should sit at the database in 2 distinct formats: **transactional** and **analytical**
@@ -23,10 +23,10 @@ There are many apps created to help users track their personal finances. We are 
 5. A minimum data visualization tool need to be connected to the transformed data
 6. An orchestration tool needs to be used
 
-## Database
+## Database & Analytics
 
 ### Schema Configuration
 
-![schema](./img/schema.png)
+![schema](./diagrams/schema.png)
 
 Our database diagram consists of seven tables. The `transactions` table granularity is per transaction. Each has an actor, group, budget/ expense (sub)category, and currency as dimensions. Check out for more details for those on their respective tables! Also, actors from a group may split one transaction amongst two or more group members (transaction_split).
