@@ -78,9 +78,6 @@ Ref: transactions.currency_id > currencies.id
 
 Table locations {
   id int [pk]
-  name varchar
-  address varchar
-  zip varchar
   city varchar
   province varchar
   country_name varchar
